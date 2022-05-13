@@ -5,10 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class FlockAgent : MonoBehaviour
 {
-    //Flock agentsFlock
+    Flock agentsFlock;
 
     private Collider2D _agentCollider;
     public Collider2D AgentCollider { get => _agentCollider; }
+
+    public void Initialise(Flock flock)
+    {
+        agentsFlock = flock;
+    }
 
     // Start is called before the first frame update
     void Start() => _agentCollider = GetComponent<Collider2D>();
