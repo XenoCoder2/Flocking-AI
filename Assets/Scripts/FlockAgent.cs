@@ -25,5 +25,17 @@ public class FlockAgent : MonoBehaviour
         transform.up = velocity.normalized; //Rotate the AI
         transform.position += (Vector3)velocity * Time.deltaTime; //Move the AI
     }
-   
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < _agentsFlock.agents.Count; i++)
+        {
+            if (_agentsFlock.agents[i] == this)
+            {
+                _agentsFlock.agents.RemoveAt(i);
+                break;
+            }
+        }
+    }
+
 }

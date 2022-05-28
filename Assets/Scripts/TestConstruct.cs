@@ -22,7 +22,7 @@ public class AnotherClass
         Debug.Log("Hallo");
     }
 
-    public AnotherClass(int pog)
+    public AnotherClass(int y)
     {
         x = 3;
     }
