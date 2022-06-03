@@ -23,7 +23,7 @@ public class Path : MonoBehaviour
 
         foreach (Transform child in GetComponentsInChildren<Transform>())
         {
-            if (child != transform)
+            if (child != transform && !waypoints.Contains(child))
             {
                 waypoints.Add(child);
             }

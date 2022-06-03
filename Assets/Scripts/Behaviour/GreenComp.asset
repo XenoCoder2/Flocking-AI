@@ -10,18 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e8fe47d7efa5a948baac2ed0dcb2877, type: 3}
-  m_Name: SheepComp
+  m_Name: GreenComp
   m_EditorClassIdentifier: 
   behaviours:
   - behaviour: {fileID: 11400000, guid: d10320219727751468225311fe3461bf, type: 2}
-    weights: 1
+    weights: 10
   - behaviour: {fileID: 11400000, guid: 9bdc09a887d75264082524e160659e18, type: 2}
     weights: 12
   - behaviour: {fileID: 11400000, guid: 8ba02c0b32c59fa4c9d401a26f3da205, type: 2}
     weights: 1.2
   - behaviour: {fileID: 11400000, guid: 5a32609e27e7a5a47a62fda52bc7c8f7, type: 2}
-    weights: 0.01
+    weights: 0.05
   - behaviour: {fileID: 11400000, guid: 245301d39e17e3d439f1431763089540, type: 2}
     weights: 4
   - behaviour: {fileID: 11400000, guid: 8e2b9ec9a51e5084e92ba0854d2d2365, type: 2}
     weights: 20
+  - behaviour: {fileID: 11400000, guid: df9bcbeb9f3571841aea7c493a015a84, type: 2}
+    weights: 5
+  - behaviour: {fileID: 11400000, guid: 14259f24c41fb004dbd4f3cd8af573c4, type: 2}
+    weights: 10

@@ -12,23 +12,21 @@ public class Player : MonoBehaviour
 
     private float _moveSpeed = 15f;
 
-    [SerializeField] private float _fireRate = 0.15f;
+    public float fireRate = 0.15f;
 
-    private float _resetFireRate;
+    public float resetFireRate;
 
     bool _hasFired = false;
-
-    private void Start()
-    {
-        _resetFireRate = _fireRate;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        LookAtMouseDirection();
-        Movement();
-        Shoot();
+        if (!MenuHandler.paused)
+        {
+            LookAtMouseDirection();
+            Movement();
+            Shoot();
+        }
     }
 
     private void LookAtMouseDirection()
@@ -55,11 +53,11 @@ public class Player : MonoBehaviour
     {
         if (_hasFired)
         {
-            _fireRate -= Time.deltaTime;
+            fireRate -= Time.deltaTime;
 
-            if (_fireRate <= 0)
+            if (fireRate <= 0)
             {
-                _fireRate = _resetFireRate;
+                fireRate = resetFireRate;
                 _hasFired = false;
             }
         }
