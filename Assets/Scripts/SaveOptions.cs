@@ -14,7 +14,7 @@ public class SaveOptions : MonoBehaviour
     public static void SaveSettings(MenuHandler set)
     {
         //Create a streamwriter which will write to the directory given to it. 
-        StreamWriter write = new StreamWriter(path);
+        StreamWriter write = new StreamWriter(path, false);
 
         //Write the Orange flock starting count to the text document.
         write.WriteLine(set.orangeSize);
