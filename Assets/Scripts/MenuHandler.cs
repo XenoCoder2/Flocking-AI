@@ -33,16 +33,27 @@ public class MenuHandler : MonoBehaviour
     public float greenSize;
     //A float to remember the player fire rate.
     public float fireRate;
+    //A reference to the Game Manager.
+    private GameManager _manage;
     #endregion
 
     #region Start
     private void Start()
     {
+        //Get the Game Manager component.
+        _manage = GetComponent<GameManager>();
+        //Set paused to false.
+        paused = false;
         //If the player has saved before.
         if (PlayerPrefs.HasKey("Saved"))
         {
             //Read the settings with this MenuHandler as the input.
             SaveOptions.ReadSettings(this);
+
+            //Set the Orange flocks starting count to the value from orange size converted to an int.
+            _flocks[0].startingCount = (int)orangeSize;
+            //Set the Green flocks starting count to the value from green size converted to an int.
+            _flocks[1].startingCount = (int)greenSize;
 
             //Set the slider values to the floats read from the config text.
             _sliders[0].value = orangeSize;
@@ -71,16 +82,15 @@ public class MenuHandler : MonoBehaviour
                 fireText.text = "Slow";
             }
 
-            //Set the Orange flocks starting count to the value from orange size converted to an int.
-            _flocks[0].startingCount = (int)orangeSize;
-            //Set the Green flocks starting count to the value from green size converted to an int.
-            _flocks[1].startingCount = (int)greenSize;
             //Set the player's fire rate to the fireRate value.
             _player.fireRate = fireRate;
             //Set the player's reset fire rate to the fireRate value.
             _player.resetFireRate = fireRate;
         }
-       
+
+        _flocks[0].SpawnFlock();
+        _flocks[1].SpawnFlock();
+
     }
     #endregion
 
@@ -89,7 +99,7 @@ public class MenuHandler : MonoBehaviour
     void Update()
     {
         //If the escape key was pressed and the config panel is not active.
-        if (Input.GetKeyDown(KeyCode.Escape) && !configPanel.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape) && !configPanel.activeInHierarchy && !_manage.levelFinishPanel.activeInHierarchy)
         {
             //If the pausePanel is not active.
             if (!pausePanel.activeInHierarchy)

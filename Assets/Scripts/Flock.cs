@@ -49,7 +49,12 @@ public class Flock : MonoBehaviour
         _squareNeighbourRadius = neighbourRadius * neighbourRadius;
         //_squareAvoidanceRadius is equal to the _squareNeighbourRaidus multiplied by the avoidanceRadiusMultiplier which is multiplied by itself.
         _squareAvoidanceRadius = _squareNeighbourRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
+    }
+    #endregion
 
+    #region Spawn Flock
+    public void SpawnFlock()
+    {
         //For the starting count of the flock.
         for (int i = 0; i < startingCount; i++)
         {
